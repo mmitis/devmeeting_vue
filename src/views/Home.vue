@@ -26,7 +26,7 @@ export default {
     value: 'sample-value'
   }),
   computed: {
-    loading: function() {
+    loading: function () {
       return this.value === 'loading';
     }
   }
