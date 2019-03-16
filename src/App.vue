@@ -9,7 +9,23 @@
     <router-view/>
   </div>
 </template>
-
+<script>
+import { mapGetters, mapActions } from 'vuex';
+export default {
+  name: 'app',
+  computed: {
+    ...mapGetters('user', ['userID', 'isAdmin'])
+  },
+  methods: {
+    ...mapActions('user', ['getUser'])
+  },
+  mounted () {
+    if (!this.userID) {
+      this.$store.dispatch('user/getUser');
+    }
+  }
+};
+</script>
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

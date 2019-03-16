@@ -8,9 +8,8 @@
       @input="emitInput"
       v-on="listeners"
       v-validate="validation"
-      name="field"
     />
-    <span>{{ errors.first('field') }}</span>
+    <span>{{ errors.first($attrs.name) }}</span>
   </label>
 </template>
 

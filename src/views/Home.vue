@@ -1,8 +1,7 @@
 <template>
   <div class="home">
-     This is home page
 
-    <VoteOptions onselect="onSelect" :options="options" >
+    <VoteOptions :options="options" >
       <template #option="{ label }">
         <base-button @click="onSelect(label)" >{{ label }}</base-button>
       </template>
