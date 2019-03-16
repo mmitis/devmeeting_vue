@@ -1,6 +1,6 @@
 export const ActionTypes = {
   'SET_SETTINGS': 'SET_SETTINGS',
-  'GET_SETTINS': 'GET_SETTINS'
+  'GET_SETTINGS': 'GET_SETTINGS'
 };
 
 const UserModule = {
