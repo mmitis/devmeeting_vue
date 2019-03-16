@@ -41,6 +41,7 @@ export default {
     loading: function () {
       return this.value === 'loading';
     }
+
   },
   methods: {
     ...mapActions('votes', ['addVote']),
