@@ -34,7 +34,7 @@
       "@vue/standard"
     ],
     "rules": {
-      "semicolon": [true, "always"]
+      "semi": [1, "always"]
     },
     "parserOptions": {
       "parser": "babel-eslint"
