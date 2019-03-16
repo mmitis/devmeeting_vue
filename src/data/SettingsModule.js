@@ -17,7 +17,6 @@ const SettingsModule = {
     [ActionTypes.GET_SETTINGS] (store) {
     },
     [ActionTypes.SET_SETTINGS] (store, settings) {
-      console.log('ddddddddddddddd')
       console.log(settings, store);
       store.settings = settings;
     }
@@ -25,7 +24,6 @@ const SettingsModule = {
   actions: {
     async getSettings (context) {
         const data = await settingsRepo.getSettings();
-        console.log('ffffffffffffff', data)
         context.commit(ActionTypes.SET_SETTINGS, data);
     },
     async saveSettings (context, data) {

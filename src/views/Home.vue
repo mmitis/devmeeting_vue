@@ -2,8 +2,9 @@
   <div class="home">
     <h4>{{ settings.title }}</h4>
     <VoteOptions :options="options" >
-      <template #option="{ label }">
-        <base-button @click="onSelect(label)" >{{ label }}</base-button>
+      <template #option="{ option }">
+        <base-button disabled="hasUserVoted" @click="onSelect(option)" >{{ option.label }}</base-button>
+        {{ groupedVotes[option.decision] }}
       </template>
     </VoteOptions>
 
@@ -20,7 +21,7 @@
 import BaseButton from '@/components/base/BaseButton.vue';
 import BaseInput from '@/components/base/BaseInput.vue';
 import VoteOptions from '@/components/VoteOptions.vue';
-import {mapGetters} from "vuex";
+import {mapActions, mapGetters} from "vuex";
 export default {
   name: 'home',
   components: {
@@ -28,17 +29,23 @@ export default {
   },
   data: () => ({
     value: 'sample-value',
-    options: ['Yes', 'Cant say', 'No']
+    options: [
+      {label: 'Yes', decision: 'yes'},
+      {label: 'Cant say', decision: "duno"},
+      {label: 'No', decision: 'no'}]
   }),
   computed: {
-    ...mapGetters('settings', ['settings', 'settings']),
+    ...mapGetters('settings', ['settings']),
+    ...mapGetters('user', ['userID']),
+    ...mapGetters('votes', ['groupedVotes', 'hasUserVoted']),
     loading: function () {
       return this.value === 'loading';
     }
   },
   methods: {
-    onSelect: function (label) {
-      console.log(label);
+    ...mapActions('votes', ['addVote']),
+    onSelect: function (decision) {
+      this.$store.dispatch('votes/addVote', { userId: this.userID, vote: decision.decision});
     }
   }
 };

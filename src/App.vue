@@ -18,12 +18,14 @@ export default {
   },
   methods: {
     ...mapActions('user', ['getUser']),
-    ...mapActions('settings', ['getSettings'])
+    ...mapActions('settings', ['getSettings']),
+    ...mapActions('votes', ['initVotesRef'])
   },
   mounted () {
     if (!this.userID) {
       this.$store.dispatch('user/getUser');
     }
+    this.$store.dispatch('votes/initVotesRef');
     this.$store.dispatch('settings/getSettings');
   }
 };

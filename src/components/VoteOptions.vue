@@ -6,10 +6,10 @@
         <slot
           v-for="option in options"
           name="option"
-          :label="option"
+          :option="option"
         >
           <li :key="option">
-            {{ option }}
+            {{ option.label }}
           </li>
         </slot>
       </ul>

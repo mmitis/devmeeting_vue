@@ -721,6 +721,10 @@
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
 
+"@posva/vuefire-core@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@posva/vuefire-core/-/vuefire-core-1.0.3.tgz#d439cc315749d08a3045ab97baa25148755d3948"
+
 "@soda/friendly-errors-webpack-plugin@^1.7.1":
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/@soda/friendly-errors-webpack-plugin/-/friendly-errors-webpack-plugin-1.7.1.tgz#706f64bcb4a8b9642b48ae3ace444c70334d615d"
@@ -7361,9 +7365,11 @@ vuex@^3.0.1:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.1.0.tgz#634b81515cf0cfe976bd1ffe9601755e51f843b9"
 
-vuexfire@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/vuexfire/-/vuexfire-2.3.1.tgz#9a3bd6cab06183f48dd864c401073688898643c2"
+vuexfire@next:
+  version "3.0.0-alpha.14"
+  resolved "https://registry.yarnpkg.com/vuexfire/-/vuexfire-3.0.0-alpha.14.tgz#8fbbb963b5cccdd0f46cebf087b180a9112969a3"
+  dependencies:
+    "@posva/vuefire-core" "^1.0.3"
 
 watchpack@^1.5.0:
   version "1.6.0"
