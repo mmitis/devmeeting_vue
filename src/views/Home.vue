@@ -36,7 +36,6 @@ export default {
     }
   },
   methods: {
-
     onSelect: function (label) {
       console.log(label);
     }
