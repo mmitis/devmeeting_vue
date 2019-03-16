@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-
+    <h4>{{ settings.title }}</h4>
     <VoteOptions :options="options" >
       <template #option="{ label }">
         <base-button @click="onSelect(label)" >{{ label }}</base-button>
@@ -20,6 +20,7 @@
 import BaseButton from '@/components/base/BaseButton.vue';
 import BaseInput from '@/components/base/BaseInput.vue';
 import VoteOptions from '@/components/VoteOptions.vue';
+import {mapGetters} from "vuex";
 export default {
   name: 'home',
   components: {
@@ -30,6 +31,7 @@ export default {
     options: ['Yes', 'Cant say', 'No']
   }),
   computed: {
+    ...mapGetters('settings', ['settings', 'settings']),
     loading: function () {
       return this.value === 'loading';
     }

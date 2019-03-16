@@ -25,7 +25,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "score" */ './views/Vote.vue')
     },
     {
-      beforeEnter: checkPermissionsGuard,
+      // beforeEnter: checkPermissionsGuard,
       path: '/settings',
       name: 'settings',
       component: () => import(/* webpackChunkName: "settings" */ './views/Settings.vue')

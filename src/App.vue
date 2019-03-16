@@ -17,12 +17,14 @@ export default {
     ...mapGetters('user', ['userID', 'isAdmin'])
   },
   methods: {
-    ...mapActions('user', ['getUser'])
+    ...mapActions('user', ['getUser']),
+    ...mapActions('settings', ['getSettings'])
   },
   mounted () {
     if (!this.userID) {
       this.$store.dispatch('user/getUser');
     }
+    this.$store.dispatch('settings/getSettings');
   }
 };
 </script>

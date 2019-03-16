@@ -1,3 +1,5 @@
+import settingsRepo from './../service/repositories/settingRepo';
+
 export const ActionTypes = {
   'SET_SETTINGS': 'SET_SETTINGS',
   'GET_SETTINGS': 'GET_SETTINGS'
@@ -6,24 +8,28 @@ export const ActionTypes = {
 const SettingsModule = {
   namespaced: true,
   state: () => ({
-    settings: ''
+    settings: {}
   }),
-  getters : {
+  getters: {
     settings: store => store.settings,
-    title: store => store.settings.title ? 'Default Title!'
   },
   mutations: {
     [ActionTypes.GET_SETTINGS] (store) {
     },
-    [ActionTypes.SET_SETTINGS] (store) {
+    [ActionTypes.SET_SETTINGS] (store, settings) {
+      console.log('ddddddddddddddd')
+      console.log(settings, store);
+      store.settings = settings;
     }
   },
   actions: {
-    getSettings (context) {
-
+    async getSettings (context) {
+        const data = await settingsRepo.getSettings();
+        console.log('ffffffffffffff', data)
+        context.commit(ActionTypes.SET_SETTINGS, data);
     },
-    setSettings (context) {
-
+    async saveSettings (context, data) {
+      await settingsRepo.saveSettings(data);
     }
   }
 };
