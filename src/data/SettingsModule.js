@@ -3,35 +3,29 @@ export const ActionTypes = {
   'GET_SETTINGS': 'GET_SETTINGS'
 };
 
-const UserModule = {
+const SettingsModule = {
   namespaced: true,
   state: () => ({
-    title: ''
+    settings: ''
   }),
-  settings: store => store.title,
+  getters : {
+    settings: store => store.settings,
+    title: store => store.settings.title ? 'Default Title!'
+  },
   mutations: {
-    [ActionTypes.SET_USER_ID] (store, userData) {
-      store.user = userData;
+    [ActionTypes.GET_SETTINGS] (store) {
     },
-    [ActionTypes.SET_ADMIN] (store, userData) {
-      store.isAdmin = userData;
+    [ActionTypes.SET_SETTINGS] (store) {
     }
   },
   actions: {
-    getUser (context) {
-      try {
-        const userObject = localStorage.getItem('userObject');
-        if (userObject) {
-          const data = JSON.parse(userObject);
-          context.commit([ActionTypes.SET_USER_ID], data);
-          return data;
-        }
-      } catch (e) {
-        console.warn('No local storage/userobject');
-      }
-      return null;
+    getSettings (context) {
+
+    },
+    setSettings (context) {
+
     }
   }
 };
 
-export default UserModule;
+export default SettingsModule;
