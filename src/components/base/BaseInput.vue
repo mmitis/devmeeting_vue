@@ -7,7 +7,10 @@
       v-bind="$attrs"
       @input="emitInput"
       v-on="listeners"
+      v-validate="validation"
+      name="field"
     />
+    <span>{{ errors.first('field') }}</span>
   </label>
 </template>
 
@@ -28,6 +31,9 @@ export default {
     listeners () {
       const { input, ...listeners } = this.$listeners;
       return listeners;
+    },
+    validation () {
+      return this.$attrs.required ? 'required' : '';
     }
   },
   methods: {

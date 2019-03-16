@@ -1,36 +1,29 @@
 <template>
-  <button
-    type="button"
-    v-bind="$attrs"
-    :disabled="loading"
-    :class="classes"
-  >
-    <slot/>
-  </button>
+  <div class="vote-options">
+    <h4>Available options</h4>
+    <div class="vote-options-holder">
+      <ul>
+        <slot
+          v-for="option in options"
+          name="option"
+          :label="option"
+        >
+          <li :key="option">
+            {{ option }}
+          </li>
+        </slot>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  inheritAttrs: false,
   props: {
-    loading: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    disabled: function () {
-      return this.loading || this.$attrs.disabled;
-    },
-    classes: function () {
-      return `btn-primary ${this.loading ? 'btn-loading' : ''}`;
+    options: {
+      type: Array,
+      default: () => []
     }
   }
-
 };
 </script>
-<style>
-  .btn-loading {
-    border: 1px solid red;
-  }
-</style>

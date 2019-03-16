@@ -1,10 +1,13 @@
 <template>
-  <input
+  <button
     type="button"
     v-bind="$attrs"
     :disabled="loading"
     :class="classes"
-  />
+    v-on="this.$listeners"
+  >
+    <slot/>
+  </button>
 </template>
 
 <script>
